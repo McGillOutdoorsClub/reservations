@@ -5,13 +5,68 @@
     <table id="table_list_items" class="table table-bordered table-striped table-condensed">
       <% cart.items.each do |model_id, quantity| %>
         <tr>
-          <td colspan="2"><%= quantity %> x
-            <div id="remove_button"><%= link_to "Remove", remove_from_cart_path(EquipmentModel.find(model_id)),
-                                method: :put, remote: true, class: 'btn btn-mini' %></div>
+          <td colspan="2">
             <%= link_to EquipmentModel.find(model_id).name, EquipmentModel.find(model_id) %>
+          </td>
+          <td>
+            <div id="remove_button"><%= link_to sanitize("#{content_tag :i, nil, class: "fa fa-plus"}"), add_to_cart_path(EquipmentModel.find(model_id)), 
+                                  :method => :put, :remote => true, :class => "btn btn-mini" %></div>
+            <br>
+            <%= quantity %>
+            <div id="remove_button"><%= link_to sanitize("#{content_tag :i, nil, class: "fa fa-minus"}"), remove_from_cart_path(EquipmentModel.find(model_id)),
+                                method: :put, remote: true, class: 'btn btn-mini' %></div>
           </td>
         </tr>
       <% end %>
     </table>
   <% end %>
 </div>
+
+<!-- This code uses an availability hash to disable the + button when there are no more items available,
+     but I commented it out because we need to wait until the UX as a whole is redone -->
+<!-- <div id="list_items_in_cart">
+  <% if cart.items.empty? %>
+    <span id="cart_is_empty">(empty)</span>
+  <% else %>
+
+    <% availability_hash = {} %>
+
+    <% id_array = [] %>
+    <% cart.items.keys.each do |model_id| %>
+      <% id_array << model_id %>
+    <% end %>
+
+    <% eq_objects = EquipmentObject.active.where(equipment_model_id: id_array).all %>
+
+    <% source_reservations = Reservation.not_returned.where(equipment_model_id: id_array).all %>
+
+    <% cart.items.each do |model_id, quantity| %>
+      <% availability_hash[model_id] = 
+        [EquipmentObject.for_eq_model(model_id, eq_objects) - Reservation.number_overdue_for_eq_model(model_id, source_reservations) - EquipmentModel.find(model_id).num_reserved(cart.start_date, cart.due_date, source_reservations) - cart.items[model_id].to_i, 0].max %>
+    <% end %>
+    <table id="table_list_items" class="table table-bordered table-striped table-condensed">
+      <% cart.items.each do |model_id, quantity| %>
+        <tr>
+          <td colspan="2">
+            <%= link_to EquipmentModel.find(model_id).name, EquipmentModel.find(model_id) %>
+          </td>
+          <td>
+            <% if availability_hash[model_id] > 0 %>
+              <div id="remove_button"><%= link_to sanitize("#{content_tag :i, nil, class: "fa fa-plus"}"), add_to_cart_path(EquipmentModel.find(model_id)), 
+                                  :method => :put, :remote => true, :class => "btn btn-mini" %></div>
+            <% else %>
+              <div id="remove_button"><%= button_tag sanitize("#{content_tag :i, nil, class: "fa fa-plus"}"), :class => "btn disabled btn-mini" %></div>
+            <% end %><br>
+
+            <%= quantity %>
+            
+            
+
+            <div id="remove_button"><%= link_to sanitize("#{content_tag :i, nil, class: "fa fa-minus"}"), remove_from_cart_path(EquipmentModel.find(model_id)),
+                                method: :put, remote: true, class: 'btn btn-mini' %></div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div> -->
