@@ -101,7 +101,7 @@ describe 'guest users' do
       end
 
       it 'can remove items from cart' do
-        click_link 'Remove',
+        click_link '',
                    href: "/remove_from_cart/#{EquipmentModel.first.id}"
         visit '/'
         expect(page.find(:css, '#list_items_in_cart')).not_to have_link(
