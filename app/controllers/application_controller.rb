@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   before_action :app_setup_check
   before_action :authenticate_user!, unless: :skip_authentication?
   before_action :cart, unless: :devise_controller?
-  #before_action :prepare_catalog_index_vars
 
   with_options unless: ->(_u) { User.count == 0 } do |c|
     c.before_filter :load_configs
