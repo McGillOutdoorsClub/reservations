@@ -1,5 +1,6 @@
 class ImportUsersController < ApplicationController
   include CsvImport
+  helper UsersHelper
 
   authorize_resource class: false
 
