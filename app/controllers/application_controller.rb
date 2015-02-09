@@ -32,6 +32,10 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |_exception|
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+  end
+
   # -------- before_filter methods -------- #
 
   def app_setup_check
