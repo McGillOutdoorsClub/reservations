@@ -37,7 +37,11 @@ module CsvImport
       if attempt_save_with_csv_data?(user_data)
         next
       else
-        attempt_save_with_ldap(user_data)
+        if ENV['USE_LDAP']
+          attempt_save_with_ldap(user_data)
+        else
+          @array_of_fail << [user_data, 'Invalid user parameters.']
+        end
         next
       end
     end
@@ -50,8 +54,12 @@ module CsvImport
   # attempts to import with LDAP, returns nil if the login is not found,
   # otherwise it replaces the keys in the data hash with the ldap data.
   def import_with_ldap(user_data_hash)
+
+    # use username if using cas, email otherwise
+    ldap_param = user_data_hash[ENV['CAS_AUTH'] ? :username : :email]
+
     # check LDAP for missing data
-    ldap_user_hash = User.search_ldap(user_data_hash[:username])
+    ldap_user_hash = User.search_ldap(ldap_param)
 
     # if nothing found via LDAP
     return if ldap_user_hash.nil?
@@ -70,6 +78,8 @@ module CsvImport
   def attempt_save_with_csv_data?(user_data)
     user = set_or_create_user_for_import(user_data)
 
+    user_data[:username] = user_data[:email]
+    
     user.update_attributes(user_data)
     # if the updated or new user is valid, save to database and add to array
     # of successful imports
