@@ -54,7 +54,6 @@ module CsvImport
   # attempts to import with LDAP, returns nil if the login is not found,
   # otherwise it replaces the keys in the data hash with the ldap data.
   def import_with_ldap(user_data_hash)
-
     # use username if using cas, email otherwise
     ldap_param = user_data_hash[ENV['CAS_AUTH'] ? :username : :email]
 
@@ -79,7 +78,7 @@ module CsvImport
     user = set_or_create_user_for_import(user_data)
 
     user_data[:username] = user_data[:email]
-    
+
     user.update_attributes(user_data)
     # if the updated or new user is valid, save to database and add to array
     # of successful imports
