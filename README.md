@@ -31,6 +31,9 @@ You'll need the following to run Reservations:
 * a [CAS](http://www.jasig.org/cas) authentication system (optional)
 
 ### Installation
+
+For Troubleshooting, see https://github.com/YaleSTC/wiki/wiki
+
 First, checkout a copy of Reservations using git:
 
 ```
@@ -45,7 +48,6 @@ Reservations uses [Bundler](http://gembundler.com/) to manage dependencies, so i
 gem install bundler
 bundle install
 ```
-See http://stackoverflow.com/a/3608756 if you encounter an error when installing mysql2
 
 You'll need to edit config/database.yml to point to your database, including the correct username and password. See [Rails Guides](http://guides.rubyonrails.org/configuring.html#configuring-a-database) for common database examples. We package a few example files in the ```config/``` folder for Ubuntu, Fedora, and OS X.
 
