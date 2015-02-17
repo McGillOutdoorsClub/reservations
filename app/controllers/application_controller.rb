@@ -33,7 +33,8 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActiveRecord::RecordNotFound do |_exception|
-    render :file => "#{Rails.root}/public/RecordNotFound.html", :status => 404, :layout => false
+    flash[:error] = 'The object you are trying to look up does not exist anymore, perhaps the number is mistyped.'
+    redirect_to main_app.root_url
   end
 
   # -------- before_filter methods -------- #
