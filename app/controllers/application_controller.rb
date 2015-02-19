@@ -33,8 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActiveRecord::RecordNotFound do |_exception|
-    flash[:error] = 'The object you are trying to look up does not exist '\
-      'anymore, perhaps the number is mistyped.'
+    flash[:error] = 'Oops, you tried to go somewhere that doesn\'t exist.'
     redirect_to main_app.root_url
   end
 
