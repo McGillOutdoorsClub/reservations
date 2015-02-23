@@ -52,6 +52,27 @@ The easiest way to make small improvements to our user-facing documentation is b
 If you'd like to help comment our codebase to make it more easily understandable, we ideally try to use the [YARD](https://github.com/lsegal/yard) tool for consistency and ease of use. That said, any documentation is helpful so feel free to add comments where you feel necessary. If you'd like to suggest changes to the wiki please [open up an issue](https://github.com/YaleSTC/reservations/issues/new) and let us know what you think should be changed.
 
 ## Contributing Code
+Helping to improve the Reservations codebase is **great**. In general, we only accept pull requests for changes related to an open GitHub issue, so make sure you open one (and it's approved) before you start working. This also makes it easier to review and test your work. The following is an overview of how to work on Reservations:
+
+### Fork Reservations / Create a Branch
+Each developer working on Reservations should fork the core Reservations repository and clone it as a local repository. Remember to add the core repository as a remote:
+
+```
+git remote add upstream git@github.com:YaleSTC/Reservations.git
+```
+
+You can either work off the forked `master` branch or create a separate topic branch in your forked repository. Make sure you pull in the latest changes from `upstream` if you cloned a while ago (`git pull upstream master`)We generally recommend prefixing the branch name with the GitHub issue number and including a few descriptive words, i.e. `1234_brief_issue_description`.
+
+We generally maintain release branches for minor versions (e.g. `release-v3.4`) for patching purposes - if you're working on a version-specific bug make sure you branch off of the correct place.
+
+### Testing
+Make sure to update or add to the test suite where appropriate; patches and features will not be accepted without tests. We use [RSpec]() for general testing and [Capybara]() for integration testing.
+
+### Code / Style Conventions
+We use [Rubocop]() as the arbiter of style for Reservations. You should run `rubocop -D` to ensure that all of your changes match the project conventions. We occasionally allow for exceptions from code complexity violations; you should make any such request in the GitHub pull request comments.
+
+### Merge Conflicts / Commit Squashing
+You must resolve any merge conflicts before your pull request will be reviewed. This can be done by either merging the base branch into your topic
 
 ### Development Setup
 
