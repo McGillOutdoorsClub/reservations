@@ -45,6 +45,11 @@ A member of the core team will label your issue appropriately and may follow up 
 Feature requests are always welcome as well. Before submitting a feature request, please search both opened and closed issues to see if the feature has already been requested. Remember that it's up to *you* to convince the core team of the merits of the feature. Please include as much detail as possible, including but not limited to the use case, a proposed implementation, and why it is likely to be common.
 
 ## Improving Documentation
+One great way of helping out is improving documentation, which can take the form of user-, developer- , and sysadmin-facing documentation. Our user-facing documentation is located on our GitHub Pages [site](https://yalestc.github.io/reservations), while our developer- and sysadmin-facing documentation is located in code comments and our GitHub [wiki](https://github.com/YaleSTC/reservations/wiki).
+
+The easiest way to make small improvements to our user-facing documentation is by editing the file with the online GitHub editor: browse the [`gh-pages` branch](https://github.com/YaleSTC/reservations/tree/gh-pages), choose the file you want to edit, click the "Edit" button, make changes, and follow the GitHub instructions from there. Once your changes are merged they will immediately appear on the website.
+
+If you'd like to help comment our codebase to make it more easily understandable, we ideally try to use the [YARD](https://github.com/lsegal/yard) tool for consistency and ease of use. That said, any documentation is helpful so feel free to add comments where you feel necessary. If you'd like to suggest changes to the wiki please [open up an issue](https://github.com/YaleSTC/reservations/issues/new) and let us know what you think should be changed.
 
 ## Contributing Code
 
