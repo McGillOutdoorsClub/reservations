@@ -66,13 +66,15 @@ You can either work off the forked `master` branch or create a separate topic br
 We generally maintain release branches for minor versions (e.g. `release-v3.4`) for patching purposes - if you're working on a version-specific bug make sure you branch off of the correct place.
 
 ### Testing
-Make sure to update or add to the test suite where appropriate; patches and features will not be accepted without tests. We use [RSpec]() for general testing and [Capybara]() for integration testing.
+Make sure to update or add to the test suite where appropriate; patches and features will not be accepted without tests. We use [RSpec](http://rspec.info/) for general testing and [Capybara](http://jnicklas.github.io/capybara/) for integration testing.
 
 ### Code / Style Conventions
-We use [Rubocop]() as the arbiter of style for Reservations. You should run `rubocop -D` to ensure that all of your changes match the project conventions. We occasionally allow for exceptions from code complexity violations; you should make any such request in the GitHub pull request comments.
+We use [Rubocop](http://batsov.com/rubocop/) as the arbiter of style for Reservations. You should run `rubocop -D` to ensure that all of your changes match the project conventions. We occasionally allow exceptions from code complexity violations; you should make any such request in the GitHub pull request comments.
 
 ### Merge Conflicts / Commit Squashing
-You must resolve any merge conflicts before your pull request will be reviewed. This can be done by either merging the base branch into your topic
+TODO: Look at Ghost guide, flesh out this section
+
+You must resolve any merge conflicts before your pull request will be reviewed. Additionally,
 
 ### Development Setup
 
