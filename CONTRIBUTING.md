@@ -42,8 +42,7 @@ reported. Especially, why do you consider this to be a bug? What do you expect t
 A member of the core team will label your issue appropriately and may follow up for more information. We try to deal with bugs as quickly as possible and will keep the issue updated with our progress, but it may take some time before it is resolved.
 
 ### Feature Requests
-
-TODO: Guidelines for feature requests goes here
+Feature requests are always welcome as well. Before submitting a feature request, please search both opened and closed issues to see if the feature has already been requested. Remember that it's up to *you* to convince the core team of the merits of the feature. Please include as much detail as possible, including but not limited to the use case, a proposed implementation, and why it is likely to be common.
 
 ## Improving Documentation
 
