@@ -34,7 +34,7 @@ RailsAdmin.config do |config|
 
   # Include only models we care about
   config.included_models =
-    %w(Announcement, AppConfig, Blackout, Category, CheckinProcedure,
+    [Announcement, AppConfig, Blackout, Category, CheckinProcedure,
        CheckoutProcedure, EquipmentModel, EquipmentObject, Requirement,
-       Reservation, User)
+       Reservation, User]
 end
