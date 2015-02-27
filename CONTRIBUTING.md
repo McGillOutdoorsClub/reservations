@@ -66,18 +66,56 @@ You can either work off the forked `master` branch or create a separate topic br
 We generally maintain release branches for minor versions (e.g. `release-v3.4`) for patching purposes - if you're working on a version-specific bug make sure you branch off of the correct place.
 
 ### Testing
-Make sure to update or add to the test suite where appropriate; patches and features will not be accepted without tests. We use [RSpec](http://rspec.info/) for general testing and [Capybara](http://jnicklas.github.io/capybara/) for integration testing.
+Make sure to update or add to the test suite where appropriate; patches and features will not be accepted without tests. We use [RSpec](http://rspec.info/) for general testing and [Capybara](http://jnicklas.github.io/capybara/) for integration testing. Make sure that the current test suite passes before submitting a PR by running `rake`.
 
 ### Code / Style Conventions
 We use [Rubocop](http://batsov.com/rubocop/) as the arbiter of style for Reservations. You should run `rubocop -D` to ensure that all of your changes match the project conventions. We occasionally allow exceptions from code complexity violations; you should make any such request in the GitHub pull request comments.
 
-### Merge Conflicts / Commit Squashing
-TODO: Look at Ghost guide, flesh out this section
+### Cleaning up your branch
+Before you submit your PR, you should clean up your commit history and resolve any merge conflicts with `master` (or your upstream branch). While we recommend making a bunch of small commits while you're working, it's important to maintain a readable and useful commit history in the main repository.
 
-You must resolve any merge conflicts before your pull request will be reviewed. Additionally,
+#### Squashing Commits
 
-### Development Setup
+1. First, find out how many commits there are on your branch:
+   ```
+   git log --oneline master..your-branch-name | wc -l
+   ```
+2. Then, use an interactive rebase to squash all but the first commit unless you have a good reason to keep more than one:
+   ```
+   git rebase -i HEAD~#
+   ```
+   where `#` is the number of commits on your branch. Mark the first commit as `r` (for reword) so you can update the message and the rest as `s` (for squash).
 
-### Contribution Workflow
+In terms of the commit message, we recommend the following:
+* The first line should summarize the impact of the commit and should be less than 80 characters. Note that this will likely go into the Changelog as well.
+* Leave the second line blank
+* The third line should reference the issue this PR resolves, either `issue #xxx` if you're just mentioning the issue or `closes #xxx` if you're closing an issue.
+  * If you don't have an issue to reference, make sure you don't need to open one before opening the PR.
+* Use bullet points on the following lines to elaborate on your brief description
 
-### Conventions / Style
+Example:
+```
+Fixes the very important thing that was broken
+
+closes #1234
+- changed the first file
+- changed the second file
+- had to take this other thing into account
+- modified this other thing
+```
+
+#### Merge Conflicts
+After you've squashed commits and crafted the perfect commit message, you need to resolve any merge conflicts with the upstream branch. First, make sure that you have latest version of `master` (or your upstream branch) checked out and then rebase your squashed branch on top of it:
+```
+git checkout master
+git pull upstream master
+git checkout 1234_your_branch_name
+git rebase master
+```
+
+Now just push your branch up to GitHub. If you've already pushed it prior to rebasing, you'll need to force push it (using the `-f` flag), otherwise you should be able to just push it normally:
+```
+git push original 1234_your_branch_name
+```
+
+### Submitting your PR
