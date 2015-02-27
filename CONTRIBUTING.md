@@ -89,7 +89,7 @@ Before you submit your PR, you should clean up your commit history and resolve a
 In terms of the commit message, we recommend the following:
 * The first line should summarize the impact of the commit and should be less than 80 characters. Note that this will likely go into the Changelog as well.
 * Leave the second line blank
-* The third line should reference the issue this PR resolves, either `issue #xxx` if you're just mentioning the issue or `closes #xxx` if you're closing an issue.
+* The third line should reference the issue this PR resolves, either `issue #1234` if you're just mentioning the issue or `closes #1234` if you're closing an issue.
   * If you don't have an issue to reference, make sure you don't need to open one before opening the PR.
 * Use bullet points on the following lines to elaborate on your brief description
 
@@ -113,9 +113,30 @@ git checkout 1234_your_branch_name
 git rebase master
 ```
 
-Now just push your branch up to GitHub. If you've already pushed it prior to rebasing, you'll need to force push it (using the `-f` flag), otherwise you should be able to just push it normally:
+Now just push your branch up to GitHub. If you've already pushed it prior to rebasing, you'll need to force push it (using the `-f` flag, **CAREFULLY**), otherwise you should be able to just push it normally:
 ```
-git push original 1234_your_branch_name
+git push origin 1234_your_branch_name
+```
+
+#### Testing
+Before finally submitting, make sure that your branches passes all of our tests and style checks:
+```
+rake
+rubocop -D
 ```
 
 ### Submitting your PR
+At this point you have a branch that is based off of the latest version of your upstream branch with a clean history and useful commit message. If you go to your fork's page on GitHub, there should be a prompt to submit a PR; if not go [here](https://github.com/YaleSTC/reservations/compare), select `YaleSTC/reservations` as the base fork and the relevant base branch and your fork as the head fork with your branch as the compare brach. Click "Create Pull Request" and add a description which references the original issue (e.g. `Resolves #1234`), describes the changes you made and any new tools or libraries you added, as well as any breaking changes.
+
+If it takes a while for your PR to be reviewed and new merge conflicts pop up, simply follow the steps [above](#merge-conflicts) to resolve them and force push your branch **CAREFULLY** back up to your fork (i.e. `origin`).
+
+Finally, note that these are only one workflow you can use to generate branches with useful commit history and resolve merge conflicts. As long as you open up PR's that are clear and easy to merge, you can do whatever you want.
+
+## Code Review
+The code review process generally includes the following steps:
+1. Reading through the issue / PR comments to understand the original issue and the work that was done.
+2. Checking out the branch and verifying that it resolves the issue / does what it claims to do.
+3. Running the tests and style checks (either manually or via [Travis](https://travis-ci.org/YaleSTC/reservations)).
+4. Read through the diff to ensure that all changes make sense and there aren't any potential bugs or inefficiencies introduced.
+
+You're welcome to participate in the code review of other people's PR's, although the core team will have final say over whether or not to merge a PR. Feel free to comment heavily and ask questions, provided you're polite and respectful. If someone asks a question on your PR, please respond constructively and informatively - there are no bad questions!
