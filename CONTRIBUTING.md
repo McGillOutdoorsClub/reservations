@@ -2,6 +2,8 @@
 
 Thanks so much for helping with the development of Reservations! This guide will cover the process for helping out with the project and should allow you to get started quickly and easily. If you need any help with contributing, please e-mail `stc-reservations{at}yale{dot}edu` to contact the core team.
 
+## Getting Started
+
 ## Reporting an Issue
 If you've been using Reservations and [notice a bug](#bug-reports), or want to [suggest a new feature](#feature-requests), please open a [GitHub issue](https://github.com/YaleSTC/reservations/issues/new). Before doing so, however, please **search open / closed issues** to see if someone else has already opened a similar issue.
 
@@ -137,6 +139,21 @@ The code review process generally includes the following steps:
 1. Reading through the issue / PR comments to understand the original issue and the work that was done.
 2. Checking out the branch and verifying that it resolves the issue / does what it claims to do.
 3. Running the tests and style checks (either manually or via [Travis](https://travis-ci.org/YaleSTC/reservations)).
-4. Read through the diff to ensure that all changes make sense and there aren't any potential bugs or inefficiencies introduced.
+4. Read through the diff to ensure that all changes make sense and that no potential bugs or inefficiencies are introduced.
 
-You're welcome to participate in the code review of other people's PR's, although the core team will have final say over whether or not to merge a PR. Feel free to comment heavily and ask questions, provided you're polite and respectful. If someone asks a question on your PR, please respond constructively and informatively - there are no bad questions!
+You're welcome to participate in the code review of other people's PR's, although the core team will have final say over whether or not to merge a PR. Feel free to comment heavily and ask questions, provided you're polite and respectful. If someone asks a question on your PR, please respond constructively and informatively - there are no bad questions! For more information see our [code of conduct](#code-of-conduct).
+
+## Development Setup
+
+## Code of Conduct
+*inspired by the [Angular.js](https://angularjs.org/) [code of conduct](https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md)*
+
+As contributors and maintainers of the Reservations project, we pledge to respect everyone who contributes by posting issues, updating documentation, submitting pull requests, providing feedback in comments, and any other activities.
+
+Any communication must be constructive and never resort to personal attacks, trolling, public or private harrassment, insults, or other unprofessional conduct.
+
+We promise to extend courtesy and respect to everyone involved in this project regardless of gender, gender identity, sexual orientation, disability, age, race, ethnicity, religion, or level of experience. We expect anyone contributing to the Reservations project to do the same.
+
+If any member of the community violates this code of conduct, the maintainers of the Reservations project may take action, removing issues, comments, and PRs or blocking accounts as deemed appropriate.
+
+If you are subject to or witness unacceptable behavior, or have any other concerns, please email us at stc-reservations@yale.edu
