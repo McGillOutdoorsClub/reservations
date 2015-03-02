@@ -5,6 +5,7 @@
 ## v5.2.0 - 2015-03-16
 ### Added
 * Added a [guide](https://github.com/YaleSTC/reservations/blob/master/CONTRIBUTING.md) for contributing to Reservations ([#1056](https://github.com/YaleSTC/reservations/issues/1056)).
+* Added table of equipment models to the category show view and improved the equipment model index table for admins([#1009](https://github.com/YaleSTC/reservations/issues/1009)).
 
 ## v5.1.0 - 2015-02-23
 ### Fixed
