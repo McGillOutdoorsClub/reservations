@@ -54,7 +54,9 @@ The easiest way to make small improvements to our user-facing documentation is b
 If you'd like to help comment our codebase to make it more easily understandable, we ideally try to use the [YARD](https://github.com/lsegal/yard) tool for consistency and ease of use. That said, any documentation is helpful so feel free to add comments where you feel necessary. If you'd like to suggest changes to the wiki please [open up an issue](https://github.com/YaleSTC/reservations/issues/new) and let us know what you think should be changed.
 
 ## Contributing Code
-Helping to improve the Reservations codebase is **great**. In general, we only accept pull requests for changes related to an open GitHub issue, so make sure you open one (and it's approved) before you start working. This also makes it easier to review and test your work. The following is an overview of how to work on Reservations:
+Helping to improve the Reservations codebase is **great**. In general, we only accept pull requests for changes related to an open GitHub issue, so make sure you open one (and it's approved) before you start working. This also makes it easier to review and test your work. During active development there will be [milestones](https://github.com/YaleSTC/reservations/milestones) for upcoming versions; we'd prefer if you select open issues from those over issues in the [wish list](https://github.com/YaleSTC/reservations/milestones/Wish%20List). Otherwise, feel free to select any open issues, noting that we try to classify them by rough priority using the labels beginning with `pri:`.
+
+The following is an overview of how to work on Reservations:
 
 ### Fork Reservations / Create a Branch
 Each developer working on Reservations should fork the core Reservations repository and clone it as a local repository. Remember to add the core repository as a remote:
