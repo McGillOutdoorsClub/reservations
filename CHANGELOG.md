@@ -2,6 +2,10 @@
 * This file will be updated whenever a new release is put into production.
 * Any problems should be reported via the "report an issue" link in the footer of the application.
 
+## v5.2.0 - 2015-03-16
+### Added
+* Added a [guide](https://github.com/YaleSTC/reservations/blob/master/CONTRIBUTING.md) for contributing to Reservations ([#1056](https://github.com/YaleSTC/reservations/issues/1056)).
+
 ## v5.1.0 - 2015-02-23
 ### Fixed
 * Calendar views no longer overflow on some browsers ([#846](https://github.com/YaleSTC/reservations/issues/846)).
