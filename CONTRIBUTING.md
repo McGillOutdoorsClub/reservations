@@ -146,6 +146,15 @@ The code review process generally includes the following steps:
 You're welcome to participate in the code review of other people's PR's, although the core team will have final say over whether or not to merge a PR. Feel free to comment heavily and ask questions, provided you're polite and respectful. If someone asks a question on your PR, please respond constructively and informatively - there are no bad questions! For more information see our [code of conduct](#code-of-conduct).
 
 ## Development Setup
+The following are the major dependencies of Reservations:
+* [Ruby 2.1](http://www.ruby-lang.org/)
+* [Bundler](http://bundler.io/)
+* a database server ([MySQL](http://www.mysql.com/) or any database supported by Rails)
+* [ImageMagick](http://www.imagemagick.org/script/index.php)
+* [GhostScript](http://www.ghostscript.com/)
+* a [CAS](http://www.jasig.org/cas) authentication system (optional)
+
+Please read through the [README](https://github.com/YaleSTC/reservations/blob/master/README.md) for information about setting up your local installation of Reservations.
 
 ## Code of Conduct
 *inspired by the [Angular.js](https://angularjs.org/) [code of conduct](https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md)*
@@ -158,4 +167,4 @@ We promise to extend courtesy and respect to everyone involved in this project r
 
 If any member of the community violates this code of conduct, the maintainers of the Reservations project may take action, removing issues, comments, and PRs or blocking accounts as deemed appropriate.
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please email us at stc-reservations@yale.edu
+If you are subject to or witness unacceptable behavior, or have any other concerns, please email us at `stc-reservations{at}yale{dot}edu`.
