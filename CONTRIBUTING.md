@@ -1,8 +1,8 @@
 # Contributing to Reservations
-
 Thanks so much for helping with the development of Reservations! This guide will cover the process for helping out with the project and should allow you to get started quickly and easily. If you need any help with contributing, please e-mail `stc-reservations{at}yale{dot}edu` to contact the core team.
 
 ## Getting Started
+There are a number of ways you can contribute to the Reservations project, from [reporting bugs](#bug-reports) and [making suggestions](#feature-requests), to [updating documentation](#improving-documentation) and [improving the codebase](#contributing-code). If you're new to coding in general, the first three options are a good way to familiarize yourself with the application and the overall codebase. If you're new to Rails development, feel free to work on some of our less complex issues, labeled with [`diff: 1`](https://github.com/YaleSTC/reservations/labels/diff%3A%201) or [`diff: 2`](https://github.com/YaleSTC/reservations/labels/diff%3A%202). If you have any questions please feel free to comment in the GitHub issues or contact the core team; we appreciate any and all help we can get!
 
 ## Reporting an Issue
 If you've been using Reservations and [notice a bug](#bug-reports), or want to [suggest a new feature](#feature-requests), please open a [GitHub issue](https://github.com/YaleSTC/reservations/issues/new). Before doing so, however, please **search open / closed issues** to see if someone else has already opened a similar issue.
