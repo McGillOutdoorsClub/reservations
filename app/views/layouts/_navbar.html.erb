@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <% unless @app_configs.nil? || @app_configs.site_title.nil? %>
-        <%= link_to sanitize("<i class=\"fa fa-th-list\"></i> #{site_title}"), root_path, class: 'navbar-brand' %>
+        <%= link_to sanitize("#{image_tag('res_logo.png', height: '32', id: 'logo')}<span>#{site_title}</span>"), root_path, class: 'navbar-brand' %>
       <% end %>
     </div>
 

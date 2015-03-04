@@ -43,6 +43,7 @@
 .navbar-brand {
   font-weight: 600;
   @include transition(all .2s ease-out);
+  padding-top: 9px;
 
   &:hover{
     text-shadow: 0 0 10px lighten($right-1-color, 20%),
@@ -54,6 +55,12 @@
                  0 0 100px lighten($right-1-color, 20%),
                  0 0 150px lighten($right-1-color, 20%);
     // color: lighten($right-1-color, 60%);
+  }
+
+  img {
+    display: inline;
+    padding-bottom: 5px;
+    padding-right: 8px;
   }
 }
 
