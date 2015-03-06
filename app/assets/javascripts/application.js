@@ -71,6 +71,17 @@ $(document).on('railsAutocomplete.select', '#fake_searched_id', function(){
 
 $(document).ready(function() {
 
+  // Logo Swap
+  $('.navbar-brand').hover(function() {
+    $('#logo').attr('src', function(index, attr) {
+      return attr.replace('.png', '_light.png');
+    });
+  }, function() {
+    $('#logo').attr('src', function(index, attr) {
+      return attr.replace('_light.png', '.png');
+    });
+  });
+
   // For DataTables and Bootstrap
   $('.datatable').dataTable({
     "pagingType": "full_numbers",
