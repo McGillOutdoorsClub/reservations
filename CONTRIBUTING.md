@@ -36,9 +36,9 @@ reported. Especially, why do you consider this to be a bug? What do you expect t
 
 ### Technical details:
 
-* Reservations Version: vX.X.X OR master (a1b2c3)
-* Operating System: Mac OS X 10.5.1
-* Browser: Chrome 39.0.2171.71
+* Reservations Version: [vX.X.X OR master (a1b2c3)]
+* Operating System: [Operating System X]
+* Browser: [Browser vX.X.X]
 ```
 
 A member of the core team will label your issue appropriately and may follow up for more information. We try to deal with bugs as quickly as possible and will keep the issue updated with our progress, but it may take some time before it is resolved.
