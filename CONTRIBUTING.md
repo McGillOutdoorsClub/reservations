@@ -44,14 +44,14 @@ reported. Especially, why do you consider this to be a bug? What do you expect t
 A member of the core team will label your issue appropriately and may follow up for more information. We try to deal with bugs as quickly as possible and will keep the issue updated with our progress, but it may take some time before it is resolved.
 
 ### Feature Requests
-Feature requests are always welcome as well. Before submitting a feature request, please search both opened and closed issues to see if the feature has already been requested. Remember that it's up to *you* to convince the core team of the merits of the feature. Please include as much detail as possible, including but not limited to the use case, a proposed implementation, and why it is likely to be common.
+Feature requests are always welcome as well. Before submitting a feature request, please search both opened and closed issues to see if the feature has already been requested. Remember that it's up to *you* to convince the core team of the merits of the feature. Please include as much detail as possible, including but not limited to the use case, a proposed implementation, and why it is likely to be useful.
 
 ## Improving Documentation
 One great way of helping out is improving documentation, which can take the form of user-, developer- , and sysadmin-facing documentation. Our user-facing documentation is located on our GitHub Pages [site](https://yalestc.github.io/reservations), while our developer- and sysadmin-facing documentation is located in code comments, in our [README](https://github.com/YaleSTC/reservations/blob/master/README.md), in the `/doc` folder of the repo, and in our [GitHub wiki](https://github.com/YaleSTC/reservations/wiki).
 
 The easiest way to make small improvements to our user-facing documentation is by editing the file with the online GitHub editor: browse the [`gh-pages` branch](https://github.com/YaleSTC/reservations/tree/gh-pages), choose the file you want to edit, click the "Edit" button, make changes, and follow the GitHub instructions from there. Once your changes are merged they will immediately appear on the website.
 
-If you'd like to help comment our codebase to make it more easily understandable, we ideally try to use the [YARD](https://github.com/lsegal/yard) tool for consistency and ease of use. That said, any documentation is helpful so feel free to add comments where you feel necessary. If you'd like to suggest changes to the wiki please [open up an issue](https://github.com/YaleSTC/reservations/issues/new) and let us know what you think should be changed.
+If you'd like to help comment our codebase to make it more easily understandable, we ideally try to use [YARD](https://github.com/lsegal/yard)  for consistency and ease of use. That said, any documentation is helpful so feel free to add comments where you feel necessary. If you'd like to suggest changes to the wiki please [open up an issue](https://github.com/YaleSTC/reservations/issues/new) and let us know what you think should be changed.
 
 ## Contributing Code
 Helping to improve the Reservations codebase is **great**. In general, we only accept pull requests for changes related to an open GitHub issue, so make sure you open one (and it's approved) before you start working. This also makes it easier to review and test your work. During active development there will be [milestones](https://github.com/YaleSTC/reservations/milestones) for upcoming versions; we'd prefer if you select open issues from those over issues in the [wish list](https://github.com/YaleSTC/reservations/milestones/Wish%20List). Otherwise, feel free to select any open issues, noting that we try to classify them by rough priority using the labels beginning with `pri:`.
@@ -65,7 +65,7 @@ Each developer working on Reservations should fork the core Reservations reposit
 git remote add upstream git@github.com:YaleSTC/Reservations.git
 ```
 
-You can either work off the forked `master` branch or create a separate topic branch in your forked repository. Make sure you pull in the latest changes from `upstream` if you cloned a while ago (`git pull upstream master`)We generally recommend prefixing the branch name with the GitHub issue number and including a few descriptive words, i.e. `1234_brief_issue_description`.
+You can either create a separate topic branch in your forked repository or work off the forked `master` branch (we recommend the former). Make sure you pull in the latest changes from `upstream` if you cloned a while ago (`git pull upstream master`) before branching. We generally recommend prefixing the branch name with the GitHub issue number and including a few descriptive words, i.e. `1234_brief_issue_description`.
 
 We generally maintain release branches for minor versions (e.g. `release-v3.4`) for patching purposes - if you're working on a version-specific bug make sure you branch off of the correct place.
 
@@ -144,7 +144,7 @@ The code review process generally includes the following steps:
 3. Running the tests and style checks (either manually or via [Travis](https://travis-ci.org/YaleSTC/reservations)).
 4. Read through the diff to ensure that all changes make sense and that no potential bugs or inefficiencies are introduced.
 
-You're welcome to participate in the code review of other people's PR's, although the core team will have final say over whether or not to merge a PR. Feel free to comment heavily and ask questions, provided you're polite and respectful. If someone asks a question on your PR, please respond constructively and informatively - there are no bad questions! For more information see our [code of conduct](#code-of-conduct).
+You're welcome to participate in the code review of other people's PR's, although the core team will have final say over whether or not to merge a PR. Feel free to comment heavily and ask questions, provided you're polite and respectful. If someone asks a question on your PR, please respond constructively and informatively - there are no bad questions! For more information see our [Code of Conduct](#code-of-conduct).
 
 ## Development Setup
 The following are the major dependencies of Reservations:
