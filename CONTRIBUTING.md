@@ -91,7 +91,8 @@ Before you submit your PR, you should clean up your commit history and resolve a
    where `#` is the number of commits on your branch. Mark the first commit as `r` (for reword) so you can update the message and the rest as `s` (for squash).
 
 In terms of the commit message, we recommend the following:
-* The first line should summarize the impact of the commit and should be less than 80 characters. Note that this will likely go into the Changelog as well.
+* The first line should summarize the impact of the commit and should be less than 72 characters. Note that this will likely go into the Changelog as well.
+  * This should also be in the present tense / imperative mood (e.g. "Add feature" vs "Added feature" and "Change element" vs "Changes element").
 * Leave the second line blank
 * The third line should reference the issue this PR resolves, either `issue #1234` if you're just mentioning the issue or `closes #1234` if you're closing an issue.
   * If you don't have an issue to reference, make sure you don't need to open one before opening the PR.
