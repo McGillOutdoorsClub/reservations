@@ -11,7 +11,7 @@
       <% unless @app_configs.nil? || @app_configs.site_title.nil? %>
         <%= link_to root_path, class: 'navbar-brand' do %>
           <%= image_tag 'res_logo.png', height: '32' %>
-          <span><%= "#{site_title}" %></span>
+          <span><%= site_title %></span>
         <% end %>
       <% end %>
     </div>
