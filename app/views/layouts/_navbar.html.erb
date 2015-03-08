@@ -10,7 +10,7 @@
       </button>
       <% unless @app_configs.nil? || @app_configs.site_title.nil? %>
         <%= link_to root_path, class: 'navbar-brand' do %>
-          <%= image_tag 'res_logo.png', height: '32px', id: 'logo' %>
+          <%= image_tag 'res_logo.svg', height: '32px', id: 'logo' %>
           <span><%= site_title %></span>
         <% end %>
       <% end %>

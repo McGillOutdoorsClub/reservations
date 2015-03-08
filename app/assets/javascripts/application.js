@@ -74,11 +74,11 @@ $(document).ready(function() {
   // Logo Swap
   $('.navbar-brand').hover(function() {
     $('#logo').attr('src', function(index, attr) {
-      return attr.replace('.png', '_light.png');
+      return attr.replace('.svg', '_light.svg');
     });
   }, function() {
     $('#logo').attr('src', function(index, attr) {
-      return attr.replace('_light.png', '.png');
+      return attr.replace('_light.svg', '.svg');
     });
   });
 
