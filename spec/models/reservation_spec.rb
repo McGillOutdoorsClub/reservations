@@ -286,9 +286,9 @@ describe Reservation, type: :model do
   end
 
   context 'with banned user' do
-    let(:banned) { FactoryGirl.build(:banned) }
+    let(:banned) { FactoryGirl.create(:banned) }
     subject(:reservation) do
-      FactoryGirl.build(:valid_reservation, reserver: banned)
+      FactoryGirl.build(:valid_reservation, reserver_id: banned.id)
     end
 
     it { is_expected.not_to be_valid }
