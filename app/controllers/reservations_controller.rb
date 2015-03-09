@@ -12,6 +12,8 @@ class ReservationsController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+    return unless @user.role == 'banned'
+    flash[:error] = 'This user is banned and cannot check out equipment.'
   end
 
   def set_reservation
