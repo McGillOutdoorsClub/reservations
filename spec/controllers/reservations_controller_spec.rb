@@ -1399,7 +1399,7 @@ describe ReservationsController, type: :controller do
         put :renew, id: @reservation.id
       end
 
-      it { expect { @reservation.reload }.not_to change(@reservation) }
+      it { expect { @reservation.reload }.not_to change { @reservation } }
       it { is_expected.to set_flash }
       it { expect(response).to redirect_to 'where_i_came_from' }
     end

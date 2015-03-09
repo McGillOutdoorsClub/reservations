@@ -102,7 +102,7 @@ class ReservationsController < ApplicationController
   end
 
   # rubocop:disable BlockNesting
-  def new # rubocop:disable MethodLength, PerceivedComplexity
+  def new # rubocop:disable MethodLength, PerceivedComplexity, AbcSize
     if cart.items.empty?
       flash[:error] = 'You need to add items to your cart before making a '\
         'reservation.'
@@ -111,7 +111,10 @@ class ReservationsController < ApplicationController
       # error handling
       @errors = cart.validate_all
       unless @errors.empty?
-        if can? :override, :reservation_errors
+        if @errors[0].include?('banned')
+          flash[:error] = 'Reservations cannot be created for banned users.'
+          redirect_to root_path
+        elsif can? :override, :reservation_errors
           flash[:error] = 'Are you sure you want to continue? Please review '\
             'the errors below.'
         else
@@ -246,9 +249,14 @@ class ReservationsController < ApplicationController
     # they have an equipment object id set.
 
     checked_out_reservations = []
+    flash[:error] = ''
     params[:reservations].each do |r_id, r_attrs|
       next if r_attrs[:equipment_object_id].blank?
-      r = Reservation.find(r_id)
+      r = Reservation.includes(:reserver).find(r_id)
+      if r.reserver.role == 'banned'
+        flash[:error] += 'Banned users cannot check out equipment.'
+        next
+      end
       checked_out_reservations <<
         r.checkout(r_attrs[:equipment_object_id], current_user,
                    r_attrs[:checkout_procedures], r_attrs[:notes])
@@ -259,11 +267,11 @@ class ReservationsController < ApplicationController
     redirect_to(:back) && return unless check_tos(@user)
 
     if checked_out_reservations.empty?
-      flash[:error] = 'No reservation selected.'
+      flash[:error] += 'No reservation selected.'
       redirect_to(:back) && return
     end
     unless Reservation.unique_equipment_objects?(checked_out_reservations)
-      flash[:error] = 'The same equipment item cannot be simultaneously '\
+      flash[:error] += 'The same equipment item cannot be simultaneously '\
         'checked out in multiple reservations.'
       redirect_to(:back) && return
     end
