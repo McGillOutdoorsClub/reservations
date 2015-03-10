@@ -1387,7 +1387,6 @@ describe ReservationsController, type: :controller do
 
     context 'when reserver is banned' do
       before(:each) do
-        request.env['HTTP_REFERER'] = 'where_i_came_from'
         @reservation.update_attribute(:reserver_id, @banned.id)
         sign_in @admin
         put :renew, id: @reservation.id
@@ -1395,7 +1394,6 @@ describe ReservationsController, type: :controller do
 
       it { expect { @reservation.reload }.not_to change { @reservation } }
       it { is_expected.to set_flash }
-      it { expect(response).to redirect_to 'where_i_came_from' }
     end
   end
 

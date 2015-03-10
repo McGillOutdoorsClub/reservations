@@ -144,6 +144,8 @@ class Reservation < ActiveRecord::Base
     # days before the due date it is and the max number of times one is
     # allowed to renew
     #
+    return false if reserver.role == 'banned'
+
     self.times_renewed ||= 0
 
     # you can't renew a checked in reservation, or one without an equipment
