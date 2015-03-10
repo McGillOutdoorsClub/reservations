@@ -360,13 +360,14 @@ class ReservationsController < ApplicationController
   end
 
   def manage # initializer
+    redirect_to(root_path) && return unless flash[:error].nil?
     @check_out_set = @user.due_for_checkout
     @check_in_set = @user.due_for_checkin
-
     render :manage, layout: 'application'
   end
 
   def current
+    redirect_to(root_path) && return unless flash[:error].nil?
     @user_overdue_reservations_set =
       [Reservation.overdue.for_reserver(@user)].delete_if(&:empty?)
     @user_checked_out_today_reservations_set =

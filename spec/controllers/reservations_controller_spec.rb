@@ -869,6 +869,10 @@ describe ReservationsController, type: :controller do
         get :manage, user_id: @banned.id
       end
 
+      it 'is a redirect' do
+        expect(response).to be_redirect
+      end
+
       it 'sets the flash' do
         expect(flash[:error]).not_to be_nil
       end
@@ -949,6 +953,10 @@ describe ReservationsController, type: :controller do
       before(:each) do
         sign_in @admin
         get :current, user_id: @banned.id
+      end
+
+      it 'is a redirect' do
+        expect(response).to be_redirect
       end
 
       it 'sets the flash' do
