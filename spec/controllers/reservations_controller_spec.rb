@@ -409,6 +409,7 @@ describe ReservationsController, type: :controller do
           sign_in @checkout_person
           @valid_cart = FactoryGirl.build(:cart_with_items)
           @banned = FactoryGirl.create(:banned)
+          @valid_cart.reserver_id = @banned.id
           @req = proc do
             post :create,
                  { reservation: { start_date: Time.zone.today,
@@ -422,9 +423,13 @@ describe ReservationsController, type: :controller do
           expect { @req.call }.not_to change { Reservation.count }
         end
 
-        it 'redirects and sets the flash' do
+        it 'is a redirect' do
           @req.call
           expect(response).to be_redirect
+        end
+
+        it 'sets flash[:error]' do
+          @req.call
           expect(flash[:error]).not_to be_nil
         end
       end

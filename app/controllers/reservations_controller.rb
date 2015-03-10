@@ -143,7 +143,8 @@ class ReservationsController < ApplicationController
     notes = params[:reservation][:notes]
     requested = !@errors.empty? && (cannot? :override, :reservation_errors)
 
-    if !@errors.blank? && notes.blank?
+    # check for missing notes and validation errors other than banned users
+    if !@errors.blank? && notes.blank? && !@errors[0].include?('banned')
       # there were errors but they didn't fill out the notes
       flash[:error] = 'Please give a short justification for this '\
         "reservation #{requested ? 'request' : 'override'}"
