@@ -166,11 +166,6 @@ class ApplicationController < ActionController::Base
 
     # validate
     errors = cart.validate_all
-    # check for banned user being the current user
-    if errors[0] && errors[0].include?('banned') &&
-       current_user.id == params[:reserver_id]
-      errors[0] = 'You are banned and cannot reserve new equipment.'
-    end
 
     # don't over-write flash if invalid date was set above
     flash[:error] ||= notices + "\n" + errors.join("\n")
