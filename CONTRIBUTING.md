@@ -222,14 +222,16 @@ rubocop -D
 
 ### Submitting your PR
 At this point you have a branch that is based off of the latest version of
-your upstream branch with a clean history and useful commit message. If you go
-to your fork's page on GitHub, there should be a prompt to submit a PR; if not
-go [here](https://github.com/YaleSTC/reservations/compare), select
-`YaleSTC/reservations` as the base fork and the relevant base branch and your
-fork as the head fork with your branch as the compare brach. Click "Create
-Pull Request" and add a description which references the original issue (e.g.
-`Resolves #1234`), describes the changes you made and any new tools or
-libraries you added, as well as any breaking changes.
+your upstream branch with a clean history and useful commit message. To
+submit, follow the following steps:
+1. If you go to your fork's page on GitHub, there should be a prompt to submit
+   a PR
+   * If not go [here](https://github.com/YaleSTC/reservations/compare), select
+     `YaleSTC/reservations` as the base fork and the relevant base branch and
+     your fork as the head fork with your branch as the compare brach.
+2. Click "Create Pull Request" and add a description which references the
+   original issue (e.g. `Resolves #1234`), describes the changes you made and
+   any new tools or libraries you added, as well as any breaking changes.
 
 If it takes a while for your PR to be reviewed and new merge conflicts pop up,
 simply follow the steps [above](#merge-conflicts) to resolve them and force
