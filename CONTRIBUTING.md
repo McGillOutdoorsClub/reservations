@@ -224,6 +224,7 @@ rubocop -D
 At this point you have a branch that is based off of the latest version of
 your upstream branch with a clean history and useful commit message. To
 submit, follow the following steps:
+
 1. If you go to your fork's page on GitHub, there should be a prompt to submit
    a PR
    * If not go [here](https://github.com/YaleSTC/reservations/compare), select
