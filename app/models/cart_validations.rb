@@ -38,7 +38,8 @@ module CartValidations
 
   def check_banned
     errors = []
-    if reserver_id && User.find(reserver_id).role == 'banned'
+    reserver = User.find_by(id: reserver_id)
+    if reserver && reserver.role == 'banned'
       errors << 'The reserver is banned and cannot reserve additional '\
         'equipment.'
     end
