@@ -250,13 +250,12 @@ class ReservationsController < ApplicationController
     # they have an equipment object id set.
 
     checked_out_reservations = []
-    flash[:error] = ''
     params[:reservations].each do |r_id, r_attrs|
       next if r_attrs[:equipment_object_id].blank?
       r = Reservation.includes(:reserver).find(r_id)
       if r.reserver.role == 'banned'
-        flash[:error] += 'Banned users cannot check out equipment.'
-        next
+        flash[:error] = 'Banned users cannot check out equipment.'
+        redirect_to(root_path) && return
       end
       checked_out_reservations <<
         r.checkout(r_attrs[:equipment_object_id], current_user,
@@ -268,11 +267,11 @@ class ReservationsController < ApplicationController
     redirect_to(:back) && return unless check_tos(@user)
 
     if checked_out_reservations.empty?
-      flash[:error] += 'No reservation selected.'
+      flash[:error] = 'No reservation selected.'
       redirect_to(:back) && return
     end
     unless Reservation.unique_equipment_objects?(checked_out_reservations)
-      flash[:error] += 'The same equipment item cannot be simultaneously '\
+      flash[:error] = 'The same equipment item cannot be simultaneously '\
         'checked out in multiple reservations.'
       redirect_to(:back) && return
     end

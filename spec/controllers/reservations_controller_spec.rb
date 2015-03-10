@@ -1173,7 +1173,7 @@ describe ReservationsController, type: :controller do
       end
 
       it { is_expected.to set_flash }
-      it { expect(response).to redirect_to 'where_i_came_from' }
+      it { expect(response).to redirect_to root_path }
     end
   end
 
