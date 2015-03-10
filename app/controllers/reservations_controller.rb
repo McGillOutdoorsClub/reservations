@@ -362,7 +362,7 @@ class ReservationsController < ApplicationController
     redirect_to(root_path) && return unless flash[:error].nil?
     @check_out_set = @user.due_for_checkout
     @check_in_set = @user.due_for_checkin
-    
+
     render :manage, layout: 'application'
   end
 
