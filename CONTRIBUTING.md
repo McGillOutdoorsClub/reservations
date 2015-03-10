@@ -245,6 +245,7 @@ want.
 
 ## Code Review
 The code review process generally includes the following steps:
+
 1. Reading through the issue / PR comments to understand the original issue
    and the work that was done.
 2. Checking out the branch and verifying that it resolves the issue / does
