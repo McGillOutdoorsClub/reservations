@@ -701,25 +701,6 @@ describe ReservationsController, type: :controller do
       end
       include_examples 'can access update page'
     end
-
-    context 'with banned reserver' do
-      before(:each) do
-        sign_in @admin
-        @reservation.update_attribute(:reserver_id, @banned.id)
-        put :update,
-            id: @reservation.id,
-            reservation:
-              FactoryGirl.attributes_for(:reservation,
-                                         start_date: Time.zone.today + 1.day,
-                                         due_date: Time.zone.today + 2.days),
-            equipment_object: ''
-      end
-      it { expect { @reservation.reload }.not_to change { @reservation } }
-      it 'redirects and shows flash' do
-        expect(response).to be_redirect
-        expect(flash[:error]).not_to be_nil
-      end
-    end
   end
 
   describe '#destroy (DELETE /reservations/:id)' do
